@@ -1,13 +1,18 @@
 package model;
 
-public class Character {
-    private int level;
-    private int health;
-    private boolean alive;
-    private int damage;
-    private int heal;
+import java.util.Objects;
 
-    public Character(int level, int health, int damage, int heal) {
+public class Character {
+
+    private int id;
+    private int level;
+    private double health;
+    private boolean alive;
+    private double damage;
+    private double heal;
+
+    public Character(int id, int level, double health, double damage, double heal) {
+        this.id = id;
         this.level = level;
         this.health = health;
         this.alive = true;
@@ -16,8 +21,14 @@ public class Character {
     }
 
     public void attack(Character character) {
-        if(character.isAlive()) {
-            character.setHealth(character.getHealth() - getDamage());
+        if(!this.equals(character) && character.isAlive()) {
+            double newDamage = getDamage();
+            if(character.getLevel() - this.getLevel() >= 5) {
+                newDamage *= 0.5;
+            } else if(this.getLevel() - character.getLevel()  >= 5) {
+                newDamage /= 0.5;
+            }
+            character.setHealth(character.getHealth() - newDamage);
             if(character.getHealth() <= 0) {
                 character.setAlive(false);
             }
@@ -25,7 +36,7 @@ public class Character {
     }
 
     public void heal(Character character) {
-        if(character.isAlive()) {
+        if(this.equals(character) && character.isAlive()) {
             character.setHealth(character.getHealth() + this.getHeal());
             if(character.getHealth() > 1000) {
                 character.setHealth(1000);
@@ -41,11 +52,11 @@ public class Character {
         this.level = level;
     }
 
-    public int getHealth() {
+    public double getHealth() {
         return health;
     }
 
-    public void setHealth(int health) {
+    public void setHealth(double health) {
         this.health = health;
     }
 
@@ -57,19 +68,32 @@ public class Character {
         this.alive = alive;
     }
 
-    public int getDamage() {
+    public double getDamage() {
         return damage;
     }
 
-    public void setDamage(int damage) {
+    public void setDamage(double damage) {
         this.damage = damage;
     }
 
-    public int getHeal() {
+    public double getHeal() {
         return heal;
     }
 
-    public void setHeal(int heal) {
+    public void setHeal(double heal) {
         this.heal = heal;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Character character = (Character) o;
+        return id == character.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1fd7756c-fa60-48a5-906d-6cc0e1f48354" name="Changes" comment="[INIT] Initialisation du projet">
+    <list default="true" id="1fd7756c-fa60-48a5-906d-6cc0e1f48354" name="Changes" comment="[FEAT-IT1] Première itération, classe Character et TUs correspondants">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/CharacterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/model/CharacterTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +51,7 @@
       <recent name="model" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.CharacterTest">
     <configuration name="CharacterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Kata-RPG" />
       <extension name="coverage">
@@ -65,9 +67,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CharacterTest.shouldDealDamageToCharacter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Kata-RPG" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.CharacterTest" />
+      <option name="METHOD_NAME" value="shouldDealDamageToCharacter" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.CharacterTest" />
+        <item itemvalue="JUnit.CharacterTest.shouldDealDamageToCharacter" />
       </list>
     </recent_temporary>
   </component>
@@ -87,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671007712111</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="[FEAT-IT1] Première itération, classe Character et TUs correspondants">
+      <created>1671009582399</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1671009582399</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -103,6 +129,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="[INIT] Initialisation du projet" />
-    <option name="LAST_COMMIT_MESSAGE" value="[INIT] Initialisation du projet" />
+    <MESSAGE value="[FEAT-IT1] Première itération, classe Character et TUs correspondants" />
+    <option name="LAST_COMMIT_MESSAGE" value="[FEAT-IT1] Première itération, classe Character et TUs correspondants" />
   </component>
 </project>
