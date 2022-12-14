@@ -4,24 +4,27 @@ import java.util.Objects;
 
 public class Character {
 
-    private int id;
+    private final int id;
+
+    private FighterType fighterType;
     private int level;
     private double health;
     private boolean alive;
     private double damage;
     private double heal;
 
-    public Character(int id, int level, double health, double damage, double heal) {
+    public Character(int id, int level, FighterType fighterType, double health, double damage, double heal) {
         this.id = id;
         this.level = level;
+        this.fighterType = fighterType;
         this.health = health;
         this.alive = true;
         this.damage = damage;
         this.heal = heal;
     }
 
-    public void attack(Character character) {
-        if(!this.equals(character) && character.isAlive()) {
+    public void attack(Character character, int range) {
+        if(!this.equals(character) && character.isAlive() && this.getFighterType().getRange() >= range) {
             double newDamage = getDamage();
             if(character.getLevel() - this.getLevel() >= 5) {
                 newDamage *= 0.5;
@@ -82,6 +85,14 @@ public class Character {
 
     public void setHeal(double heal) {
         this.heal = heal;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public FighterType getFighterType() {
+        return fighterType;
     }
 
     @Override
