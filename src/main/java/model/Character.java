@@ -1,13 +1,18 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toSet;
 
 public class Character {
 
     private final int id;
-
-    private FighterType fighterType;
+    private final FighterType fighterType;
     private int level;
+    private List<Faction> factions;
     private double health;
     private boolean alive;
     private double damage;
@@ -21,10 +26,11 @@ public class Character {
         this.alive = true;
         this.damage = damage;
         this.heal = heal;
+        this.factions = new ArrayList<>();
     }
 
     public void attack(Character character, int range) {
-        if(!this.equals(character) && character.isAlive() && this.getFighterType().getRange() >= range) {
+        if(!this.equals(character) && character.isAlive() && this.getFighterType().getRange() >= range && !areAllies(character)) {
             double newDamage = getDamage();
             if(character.getLevel() - this.getLevel() >= 5) {
                 newDamage *= 0.5;
@@ -39,7 +45,7 @@ public class Character {
     }
 
     public void heal(Character character) {
-        if(this.equals(character) && character.isAlive()) {
+        if((this.equals(character) || areAllies(character)) && character.isAlive()) {
             character.setHealth(character.getHealth() + this.getHeal());
             if(character.getHealth() > 1000) {
                 character.setHealth(1000);
@@ -47,12 +53,28 @@ public class Character {
         }
     }
 
-    public int getLevel() {
-        return level;
+    public boolean areAllies(Character character) {
+        return factions.stream()
+                .map(Faction::name)
+                .anyMatch(
+                        character.factions.stream()
+                                .map(Faction::name)
+                                .collect(toSet())
+                                ::contains);
     }
 
-    public void setLevel(int level) {
-        this.level = level;
+    public void joinFaction(Faction faction) {
+        if(!factions.contains(faction)) {
+            factions.add(faction);
+        }
+    }
+
+    public void leaveFaction(Faction faction) {
+        factions.remove(faction);
+    }
+
+    public int getLevel() {
+        return level;
     }
 
     public double getHealth() {
@@ -75,20 +97,8 @@ public class Character {
         return damage;
     }
 
-    public void setDamage(double damage) {
-        this.damage = damage;
-    }
-
     public double getHeal() {
         return heal;
-    }
-
-    public void setHeal(double heal) {
-        this.heal = heal;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public FighterType getFighterType() {
