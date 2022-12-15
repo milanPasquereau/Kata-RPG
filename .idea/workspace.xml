@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1fd7756c-fa60-48a5-906d-6cc0e1f48354" name="Changes" comment="[FEAT-IT3] Troisième itération, ajout d'une range d'attaque">
+    <list default="true" id="1fd7756c-fa60-48a5-906d-6cc0e1f48354" name="Changes" comment="[FEAT-IT4] Quatrième itération, ajout du système de factions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/FighterType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/FighterType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/model/CharacterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/model/CharacterTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,10 +18,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
         <option value="Enum" />
         <option value="Record" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -36,15 +37,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": ""
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -85,9 +86,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CharacterTest.shouldHealCharacter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Kata-RPG" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.CharacterTest" />
+      <option name="METHOD_NAME" value="shouldHealCharacter" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.CharacterTest" />
+        <item itemvalue="JUnit.CharacterTest.shouldHealCharacter" />
         <item itemvalue="JUnit.CharacterTest.shouldDealDamageToCharacter" />
       </list>
     </recent_temporary>
@@ -129,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671012392937</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="[FEAT-IT4] Quatrième itération, ajout du système de factions">
+      <created>1671029393593</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1671029393593</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -148,6 +173,18 @@
     <MESSAGE value="[FEAT-IT1] Première itération, classe Character et TUs correspondants" />
     <MESSAGE value="[FEAT-IT2] Seconde itération, modif des degats suivant le level du perso et regles d'attaque et de soin" />
     <MESSAGE value="[FEAT-IT3] Troisième itération, ajout d'une range d'attaque" />
-    <option name="LAST_COMMIT_MESSAGE" value="[FEAT-IT3] Troisième itération, ajout d'une range d'attaque" />
+    <MESSAGE value="[FEAT-IT4] Quatrième itération, ajout du système de factions" />
+    <option name="LAST_COMMIT_MESSAGE" value="[FEAT-IT4] Quatrième itération, ajout du système de factions" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/Character.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -13,10 +13,6 @@ public enum FighterType {
         this.range = range;
     }
 
-    public String getType() {
-        return type;
-    }
-
     public int getRange() {
         return range;
     }

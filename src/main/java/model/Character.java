@@ -2,34 +2,44 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toSet;
 
-public class Character {
-
-    private final int id;
+public class Character extends Target{
     private final FighterType fighterType;
-    private int level;
-    private List<Faction> factions;
-    private double health;
+    private final int level;
+    private final List<Faction> factions;
     private boolean alive;
-    private double damage;
-    private double heal;
+    private final double damage;
+    private final double heal;
 
     public Character(int id, int level, FighterType fighterType, double health, double damage, double heal) {
-        this.id = id;
+        super(id, health);
         this.level = level;
         this.fighterType = fighterType;
-        this.health = health;
         this.alive = true;
         this.damage = damage;
         this.heal = heal;
         this.factions = new ArrayList<>();
     }
 
-    public void attack(Character character, int range) {
+    public void attack(Target target, int range) {
+        if(target instanceof Prop prop) {
+            attack(prop);
+        } else if(target instanceof Character character) {
+           attack(character, range);
+        }
+    }
+
+    private void attack(Prop prop) {
+        prop.setHealth(prop.getHealth() - this.getDamage());
+        if(prop.getHealth() <= 0) {
+            prop.setDestroyed(true);
+            prop.setHealth(0);
+        }
+    }
+
+    private void attack(Character character, int range) {
         if(!this.equals(character) && character.isAlive() && this.getFighterType().getRange() >= range && !areAllies(character)) {
             double newDamage = getDamage();
             if(character.getLevel() - this.getLevel() >= 5) {
@@ -40,6 +50,7 @@ public class Character {
             character.setHealth(character.getHealth() - newDamage);
             if(character.getHealth() <= 0) {
                 character.setAlive(false);
+                character.setHealth(0);
             }
         }
     }
@@ -77,14 +88,6 @@ public class Character {
         return level;
     }
 
-    public double getHealth() {
-        return health;
-    }
-
-    public void setHealth(double health) {
-        this.health = health;
-    }
-
     public boolean isAlive() {
         return alive;
     }
@@ -103,18 +106,5 @@ public class Character {
 
     public FighterType getFighterType() {
         return fighterType;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Character character = (Character) o;
-        return id == character.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
     }
 }

@@ -142,7 +142,7 @@ class CharacterTest {
     }
 
     @Test
-    @DisplayName("should heal ally")
+    @DisplayName("should not attack ally")
     void shouldNotAttackAlly() {
         Faction faction = new Faction("Faction");
         Character attacker = new Character(1,9, FighterType.RANGED,1000, 100, 100);
@@ -153,5 +153,16 @@ class CharacterTest {
         attacker.attack(ally, 10);
 
         assertEquals(400, ally.getHealth());
+    }
+
+    @Test
+    @DisplayName("should deal damage and destroy prop")
+    void shouldDealDamageAndDestroyProp() {
+        Character attacker = new Character(1,9, FighterType.RANGED,1000, 100, 100);
+        Prop prop = new Prop(2,100);
+        attacker.attack(prop, 10);
+
+        assertTrue(prop.isDestroyed());
+        assertEquals(0, prop.getHealth());
     }
 }
