@@ -1,6 +1,6 @@
 package model;
 
-public class Prop extends Target{
+public class Prop extends Target {
     private boolean destroyed;
 
     public Prop(int id, double health) {
